@@ -1,0 +1,117 @@
+/* ********************************************************************
+ * CSS for Elementski,  may contain some nuts.
+ * Copyright Andy Cragg 2016.
+ * ********************************************************************/
+html, body {
+   margin:0;
+   padding:0;
+   text-align:center;
+   font-family : "Trebuchet MS", sans-serif;
+   font-size:100%;
+   width:60%;
+}
+
+.whole_section_div {
+   border : 1px solid lightgrey;
+   float:left;
+   width:100%;
+   margin-bottom:2px;
+}
+
+.sound_image {
+   box-shadow: 2px 2px 5px #000000;
+   float:left;
+   width : 30%;
+}
+
+.play_image_icon {
+   box-shadow: 2px 2px 5px #000000;
+   float:left;
+   margin : 5px;
+   width : 15%;
+}
+.image_icon {
+   box-shadow: 2px 2px 5px #000000;
+   float:left;
+   margin : 5px;
+   width : 15%;
+}
+
+input {
+   font-size:100%;
+   background:lightblue;
+}
+
+#header{
+   position:relative;
+   width:100%;
+   display:block;
+   overflow:auto;
+   border-bottom :1px solid green;
+}
+
+#pagewidth {
+   text-align:left;
+   margin:0 auto;
+   border :1px solid green;
+   margin:5px;
+   padding:5px;
+}
+
+#footer {
+   background-color:#FFFFFF;
+   clear:both;
+   display:block;
+   overflow:auto;
+   margin-top : 10px;
+}
+
+.hp_slide {
+   position: relative;
+   width: 100%;
+   height: 10px;
+   background-color: white;
+   border : 0px solid white;
+}
+.hp_range {
+   position: absolute;
+   width: 0%;
+   height: 100%;
+   background-color: green;
+   border : 0px solid white;
+}
+
+.download_slide {
+}
+.download_range {
+}
+
+.time_display {
+   font-family : "Trebuchet MS", sans-serif;
+   font-size:70%;
+   text-align:right;
+}
+
+.details_text {
+   font-family : "Trebuchet MS", sans-serif;
+   font-size:80%;
+   float:left;
+   margin : 5px;
+}
+
+.no_auth_text {
+   font-family : "Trebuchet MS", sans-serif;
+   font-size:80%;
+   float:left;
+   color:red;
+   text-align:center;
+}
+
+// Copyright 2016 Andy Cragg.
+//
+// This program is free software; you can redistribute it and/or modify it
+// under the terms of the the Perl Artistic License (2.0). You may obtain a
+// copy of the full license at:
+//
+// http://www.perlfoundation.org/artistic_license_2_0
+

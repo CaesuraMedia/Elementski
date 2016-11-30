@@ -1,0 +1,100 @@
+[% INCLUDE header
+   title = 'Elementski - Freesound.org Sound Element Finder'
+%]
+
+      <form method=POST
+         enctype="multipart/form-data"
+         accept-charset=utf-8
+         action="/cgi-bin/elementski/elementski.cgi">
+
+      <p class="normal_text">Search freesound :</p>
+
+      <input type="text"
+         class="search_text"
+         name="search_text" />
+
+      <input type=submit
+         class="submit_button"
+         name="submit_search_button"
+         value="Search" />
+
+      <p class="normal_text">[% text_searched_for %]</p>
+
+      [% IF get_authorisation != 'no' %]
+         <iframe
+             src=[% get_authorisation %]
+             width="650px"
+             height="250px"
+             frameBorder="0"
+         >iframes not supported in your browser
+         </iframe>
+      [% END %]
+         <!-- id, ogg, waveform-pic, url, name, licence, filesize, duration, samplerate -->
+         [% FOREACH Row IN sample_rows %]
+           [% FOREACH Col IN Row %]
+              [% SWITCH loop.index %]
+              [%   CASE [ '0' ] %]
+         [% id_num = Col %]
+              [%   CASE [ '1' ] %]
+         [% ogg_file = Col %]
+              [%   CASE [ '2' ] %]
+         <div class="whole_section_div">
+
+         <img class="sound_image" id="img_id_[% id_num %]" src='[% Col %]' />
+
+         <div id="hp_slide_[% id_num %]" class="hp_slide">
+            <div id="hp_range_[% id_num %]" class="hp_range">
+            </div>
+         </div>
+
+         <img src=/img/Play.png 
+            class="play_image_icon"
+            id="play_button_[% id_num %]" 
+            onclick="playthething('img_id_[% id_num %]', '[% ogg_file %]', 'Play')" />
+
+         <img src=/img/Stop.png 
+            class="image_icon"
+            id="reset_and_play_[% id_num %]"
+            onclick="playthething('img_id_[% id_num %]', '[% ogg_file %]', 'Stop')" />
+
+         <img src=/img/Download.png 
+            class="image_icon"
+            id="download_[% id_num %]"
+            onclick="start_download('[% id_num %]')" />
+
+         <div id="download_container_[% id_num %]" class="download_slide">
+            <div id="download_bar_[% id_num %]" class="download_range">
+            </div>
+         </div>
+              [%   CASE [ '3' ] %]
+         <span class="details_text"><a href='[% Col %]' target="_blank">on Freesound.org</a>
+              [%   CASE [ '4' ] %]
+                 / [% Col %]
+              [%   CASE [ '5' ] %]
+         / <a href=[% Col %]>license</a>
+              [%   CASE [ '6' ] %]
+                 / [% Col %] bytes
+              [%   CASE [ '7' ] %]
+                 / [% Col %]s
+              [%   CASE [ '8' ] %]
+                 / [% Col %]Hz
+         </span>
+         <!-- End div whole_section_div -->
+         </div>
+              [% END %]
+           [% END %]
+         [% END %]
+
+      </form>
+
+[% INCLUDE footer %]
+
+[%# Copyright 2016 Andy Cragg.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of the the Artistic License (2.0). You may obtain a
+    copy of the full license at:
+
+    http://www.perlfoundation.org/artistic_license_2_0
+
+%]
